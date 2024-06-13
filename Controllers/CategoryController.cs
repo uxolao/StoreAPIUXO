@@ -4,7 +4,7 @@ using StoreAPIUXO.Data;
 using StoreAPIUXO.Models;
 
 namespace StoreAPIUXO.Controllers;
-// [Authorize]
+[Authorize]
 // [Authorize(Roles = UserRolesModel.Admin)]
 [ApiController]
 [Route("api/[controller]")]
