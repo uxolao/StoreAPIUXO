@@ -48,15 +48,13 @@ builder.Services.AddCors(options =>
     options.AddPolicy("MultipleOrigins",
     policy =>
     {
-        policy.withOrigins(
-            '*', // Allow any origin
-            'http://localhost:4200', // Angular app
-            'http://localhost:3000' // React app
+        policy.WithOrigins(            
+            "http://localhost:4200", // Angular app or '*', // Allow any origin
+            "http://localhost:3000" // React app
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
-    }
-    );
+    });
 });
 
 
@@ -111,7 +109,7 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 // User CORS
-app.UseCors("MultipleOrigins")
+app.UseCors("MultipleOrigins");
 
 // Add Authentication
 app.UseAuthentication();
